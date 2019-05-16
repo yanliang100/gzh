@@ -1,0 +1,105 @@
+server:
+  port: 80
+
+spring:
+  #静态资源
+  resources:
+    static-locations: classpath:/static #(这个是放在resources路径/类路径 下的static文件夹)
+  mvc:
+    static-path-pattern: //** #这个节点的配置是设置静态文件的访问的路径（http请求的）
+  #数据源
+  datasource:
+    name: test
+    driver-class-name: com.mysql.jdbc.Driver
+    #ceshi
+    #url: jdbc:mysql://192.168.25.129:3306/nideshop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    #username: root
+    #password: 123456
+    #normal
+    #url: jdbc:mysql://cd-cdb-6fhcpmci.sql.tencentcdb.com:63125/nideshop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://172.27.0.9:3306/nideshop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: dongfangyouquan_8868
+
+  #页面热加载
+  thymeleaf:
+    cache: true #页面热加载
+  #文件上传
+  servlet:
+    multipart:
+      max-file-size: 100MB #spring上传文件默认最大1MB，上传文件大小会先被spring限制，config.json文件大小限制要小于spring的设置
+  #服务器文件大小
+  server:
+    MaxFileSize: 300MB
+    MaxRequestSize: 500MB
+  #weixin
+  weixin:
+
+    logoPath: C:/upload/logo/dfyq_yuan.png
+    #ceshi
+    #appId: wx41aa59a630d3a55a
+    #appSecret: e83321c7f040c48339369c97ad3ecefe
+    #domain: http://lafei.natapp1.cc
+    #token: 88e91e42cfd3c956
+
+    #normal
+    appId: wx57d0bbef49f4635b
+    appSecret: 234252a358aa7cee3461ed9f4aec79c7
+    domain: http://dfyqjjg.natapp1.cc
+    token: 9a57710e57293c01
+
+    get_weixin_user_url: https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+    access_token_url: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s
+    access_user_url: https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID
+    menu_create_url: https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
+    get_media_url: https://api.weixin.qq.com/cgi-bin/media/get
+
+    #微信官方会员卡 不好用 未使用
+    huiyuan_card_id: p1uQj5ihJjaP2zv4yNeSW72KpXdI
+    huiyuan_card_list: https://api.weixin.qq.com/card/user/getcardlist?access_token=%s
+    jsapi_ticket_url: https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi
+    api_ticket_url: https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=wx_card
+
+    #关联小程序
+    mimiprogram_appid: wx3cea8ba3710831d7
+    mimiprogram_domain: https://dfyqjjg.natapp1.cc
+
+    #baidu ocr
+    baidu_app_id: 4wRfSMpTmde5Ew1qfOBgGh4A
+    baidu_secret: XDyfdHPmgq1zFkNGoI5vTm3koT7NGG3u
+    baidu_token_url: https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=%s&client_secret=%s
+    baidu_bce_url: https://aip.baidubce.com/rest/2.0/ocr/v1/general
+
+    #baidu translate
+    translate_app_id: 20190317000278057
+    translate_security_key: B_SNDVpZ1HDXO_JllJup
+
+    #wexinpay
+    mch_id: 1530438051
+    api_key: DongfangyouquanFaSoLa88888888888
+    prepay_url: https://api.mch.weixin.qq.com/pay/unifiedorder
+    notify_url: /cg
+    trade_type: JSAPI
+    spbill_create_ip: 111.231.228.193
+
+    #sms
+    sms_sign_name: 东方有泉家居馆
+    sms_template_code: SMS_159780972
+    sms_access_keyid: LTAIpDjiAerCm8fI
+    sms_access_keysecret: NzvLSDE1V0GHvjJXtck8nUaCldZwp0
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.lafei.*.bean  # 注意：对应实体类的路径
+  config-location: classpath:mapper/config/sqlMapConfig.xml
+
+# 开启调试模式，打印sql
+#logging:level.com.lafei.*.mapper: DEBUG
+
+#ueditor
+ue:
+  config-file: static/ueditor/jsp/config.json #resources目录下配置文件的位置
+  server-url: /ueditor.do #服务器统一请求接口路径
+  url-prefix: /file/ #"/"结尾
+  physical-path: C:/upload/ #存储文件的绝对路径 必须使用标准路径"/"作为分隔符
