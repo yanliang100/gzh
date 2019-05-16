@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>扫描二维码进行付款</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+    <link rel="stylesheet" href="css/wxzf.css">
+</head>
+<body>
+    <div class="zfcg_box ">
+        <div class="all_w" style="text-align: center" th:text="'订单编号:'+${order.orderSn}"></div>
+    </div>
+    <div class="cgzf_info">
+        <div class="wenx_xx">
+            <img th:src="@{'pay_qr_code.img?orderSn='+${order.orderSn}+'&orderPrice='+${order.orderPrice}}" style="width: 300px;height: 300px">
+            <div class="wxzf_price"><i>￥</i><em th:text="${order.orderPrice}"></em></div>
+        </div>
+    </div>
+    <div class="wzxfcgde_tb" style="position: static;padding: 10px"><img src="images/cg_07.jpg" ></div>
+</body>
+</html>

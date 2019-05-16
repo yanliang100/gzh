@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>一键购物</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="css/jweixin.css"/>
+    <link rel="stylesheet" href="css/wxzf.css">
+    <script src="js/jweixin-1.1.0.js"></script>
+    <script src="lib/jquery-2.1.4.js"></script>
+    <script src="js/unified_order.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="all_w ">
+            <div class="gofh"> <a href="#" onclick="location.href='pay'"><img src="images/jt_03.jpg" ></a> </div>
+            <div class="ttwenz">
+                <h4>确认交易</h4>
+                <h5>微信安全支付</h5>
+            </div>
+            <img th:src="${headimgurl}" class="fh_but"/>
+        </div>
+    </div>
+    <div class="wenx_xx">
+        <div class="clear_wl"><span> 订单编号:<em name="out_trade_no" th:text="${coupon==null?orderSn:orderSn+'_'+coupon.id}"></em></span></div>
+        <div class="wxzf_price" th:if="${coupon==null}">￥<em th:text="${orderPrice}" name="totalFee"></em></div>
+        <div class="wxzf_price" th:if="${coupon!=null}">￥<em th:text="${orderPrice}-${coupon.typeMoney}" name="totalFee"></em><del style="font-size: 20px;color: grey">￥<em th:text="${orderPrice}"></em></del></div>
+    </div>
+    <div class="srzfmm_box">
+        <a href="#" class="blank_yh" th:if="${coupon==null}">
+            <span class="fl ml5">可用优惠券 <em>0</em>张</span> <img src="images/jftc_08.jpg" class="fr">
+        </a>
+        <a href="#" class="blank_yh" th:if="${coupon!=null}">
+            <span class="fl ml5"><em th:text="${coupon.name}"></em> 1张</span> <img src="images/jftc_08.jpg" class="fr">
+        </a>
+        <a href="#" class="blank_yh">
+            <span class="fl ml5">可以抵扣<em>0</em>积分</span> <img src="images/jftc_08.jpg" class="fr">
+        </a>
+        <a href="#" class="blank_yh" th:if="${promotion!=null}">
+            <span class="fl ml5" style="color: red" th:text="${promotion}"></span> <img src="images/jftc_08.jpg" class="fr">
+        </a>
+    </div>
+    <div class="skf_xinf">
+        <div class="all_w"> <span class="bt">收款方</span> <span class="fr">东方有泉家居馆</span> </div>
+    </div>
+    <a href="javascript:void(0);" class="ljzf_but all_w">立即支付</a>
+</body>
+</html>

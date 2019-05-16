@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>招贤纳士</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type">
+    <meta content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"/>
+    <link rel="stylesheet" href="zhaopin/css/swiper.min.css">
+    <link rel="stylesheet" href="zhaopin/css/animate.min.css">
+    <link rel="stylesheet" href="zhaopin/css/style.css">
+    <script src="zhaopin/js/swiper.min.js"></script>
+    <script src="zhaopin/js/swiper.animate.min.js"></script>
+    <script src="zhaopin/js/code.min.js"></script>
+    <script type="text/javascript" src='http://res.wx.qq.com/open/js/jweixin-1.2.0.js'></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+    <script src="zhaopin/js/zhaopin.js"></script>
+</head>
+<body>
+<div class="swiper-container swiper-container-vertical" id="swiper-container-v">
+
+    <section class="poster_wrap load" id="load" style="display: none;">
+        <div class="p_loading">
+            <div class="p_loading_logo"></div>
+            <p class="p_loading_tip">新生活，从新工作开始</p>
+        </div>
+    </section>
+
+
+    <div class="swiper-wrapper">
+        <!-------------slide1----------------->
+        <section class="swiper-slide swiper-slide1 swiper-slide-v swiper-slide-active" style="height: 576px; opacity: 1; z-index: 1;">
+            <div class="index-top ani  myZoomIn1 animated" swiper-animate-effect="myZoomIn1" swiper-animate-duration="0.6s" swiper-animate-delay="0s" swiper-animate-style-cache=" " style="visibility: visible;animation-duration:0.6s;-webkit-animation-duration:0.6s;animation-delay:0s;-webkit-animation-delay:0s;">
+                <div class="logo">
+                    <div class="box1">
+                        <div class="box2">
+                            <img src="zhaopin/img/wzp_logo.png">
+                        </div>
+                    </div>
+                </div>
+                <h1 class="poster_tit">东方有泉家居馆</h1>
+                <p class="poster_details">新生活，从新工作开始</p>
+
+            </div>
+
+            <div class="building ani  myZoomIn2 animated" swiper-animate-effect="myZoomIn2" swiper-animate-duration="0.6s" swiper-animate-delay="0s" swiper-animate-style-cache=" " style="visibility: visible;animation-duration:0.6s;-webkit-animation-duration:0.6s;animation-delay:0s;-webkit-animation-delay:0s;"></div>
+        </section>
+        <!---------------slide2-------------->
+        <section class="swiper-slide swiper-slide2 swiper-slide-v swiper-slide-next" style="height: 576px; opacity: 0; transform: translate3d(0px, -576px, 0px); z-index: 0;">
+            <ul class="company_intro">
+                <li class="intro1 ani" swiper-animate-effect="myFlip" swiper-animate-duration="0.3s" swiper-animate-delay="0s" swiper-animate-style-cache=" " style="visibility: hidden;">
+                    <div class="icon"><i></i></div>
+                    <p>天津</p>
+                </li>
+                <li class="intro2 ani" swiper-animate-effect="myFlip" swiper-animate-duration="0.3s" swiper-animate-delay="0.1s" swiper-animate-style-cache=" " style="visibility: hidden;">
+                    <div class="icon"><i></i></div>
+                    <p>2-5人</p>
+                </li>
+                <li class="intro3 ani" swiper-animate-effect="myFlip" swiper-animate-duration="0.3s" swiper-animate-delay="0.2s" swiper-animate-style-cache=" " style="visibility: hidden;">
+                    <div class="icon"><i></i></div>
+                    <p>私营</p>
+                </li>
+            </ul>
+            <h3 class="about_us_tit ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.3s" swiper-animate-delay="0.3s" swiper-animate-style-cache=" " style="visibility: hidden;"><i class="about_us_tit_ico"></i>认识我们</h3>
+            <div class="about_us_msg_p ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.3s" swiper-animate-delay="0.5s" swiper-animate-style-cache=" " style="visibility: hidden;">
+                FaSoLa（东方有泉家居用品有限公司）是舒适家居美学的践行者，我们通过在中国、日本、韩国等地的产品创意研发团队，不断为社会研发优质的产品，努力还原一个简洁、有序、舒适、愉悦的生活方式。
+            </div>
+
+        </section>
+        <!----------------slide3-------------->
+        <section class="swiper-slide swiper-slide3 swiper-slide-v" style="height: 576px; opacity: 0; transform: translate3d(0px, -1152px, 0px); z-index: 0;">
+            <h1 class="abus_head"><i class="about_us_tit_ico"></i>我们的福利</h1>
+            <div class="welf_bg">
+                <div class="one ani" style="transition-timing-function: linear; visibility: hidden;"
+                     swiper-animate-effect="myrotateIn" swiper-animate-duration="0.5s" swiper-animate-delay="0s"
+                     swiper-animate-style-cache="transition-timing-function:linear;"><span>五险一金</span></div>
+                <div class="two ani" style="transition-timing-function: linear; visibility: hidden;"
+                     swiper-animate-effect="myrotateIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.1s"
+                     swiper-animate-style-cache="transition-timing-function:linear;"><span>每月双休</span></div>
+                <div class="thr ani" style="transition-timing-function: linear; visibility: hidden;"
+                     swiper-animate-effect="myrotateIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s"
+                     swiper-animate-style-cache="transition-timing-function:linear;"><span>福利待遇好</span></div>
+                <div class="thi ani" style="transition-timing-function: linear; visibility: hidden;"
+                     swiper-animate-effect="myrotateIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.2s"
+                     swiper-animate-style-cache="transition-timing-function:linear;"><span>发展前景好</span></div>
+                <div class="fiv ani" style="transition-timing-function: linear; visibility: hidden;"
+                     swiper-animate-effect="myrotateIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"
+                     swiper-animate-style-cache="transition-timing-function:linear;"><span>晋升空间大</span></div>
+                <div class="six ani" style="transition-timing-function: linear; visibility: hidden;"
+                     swiper-animate-effect="myrotateIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"
+                     swiper-animate-style-cache="transition-timing-function:linear;"><span>提供培训</span></div>
+            </div>
+        </section>
+        <!-------------slide4----------------->
+        <section class="swiper-slide swiper-slide4 swiper-slide-v" style="height: 576px; opacity: 0; transform: translate3d(0px, -1728px, 0px); z-index: 0;">
+            <h1 class="posit_tit"><i class="about_us_tit_ico"></i>我们招聘的职位</h1>
+            <div class="swiper-container ani swiper-container-horizontal" id="swiper-container-h"
+                 swiper-animate-effect="rotateInUpLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0s"
+                 swiper-animate-style-cache=" " style="visibility: hidden;">
+                <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(48px, 0px, 0px);">
+                    <div class="swiper-slide slide1 swiper-slide-active" style="margin-right: 15px;">
+                        <div class="posit_details_head">
+                            <h3 class="posit_details_tit">店长 2名</h3>
+                            <span class="posit_details_money"><strong>工资面议</strong></span>
+                            <p class="posit_details_tip">3年以上经验、学历本科</p>
+                        </div>
+                        <div class="job_details">
+                            <p class="job_address">工作地点：天津市河西区南北大街1号凯德MALL</p>
+                            <div class="job_msg">任职资格：
+                                1.男女不限，形象气质佳，有良好的职业道德修养；<br>
+                                2.有3年以上零售店面经验，有家具用品店销售管理经验优先；<br>
+                                3.具备良好的沟通能力和理解能力；<br>
+                                4.有良好的执行能力，并善于分析问题和解决问题；<br>
+                                5.面对突发事件的应变能力强。<br>
+                            </div>
+                        </div>
+                        <div class="posit_arrow_bot"></div>
+                    </div>
+                    <div class="swiper-slide slide2 swiper-slide-next" style="margin-right: 15px;">
+                        <div class="posit_details_head">
+                            <h3 class="posit_details_tit">销售专员</h3>
+                            <span class="posit_details_money"><strong>工资3K+</strong></span>
+                            <p class="posit_details_tip">经验不限、学历不限</p>
+                        </div>
+                        <div class="job_details">
+                            <p class="job_address">工作地点：天津市河西区南北大街1号凯德MALL</p>
+                            <div class="job_msg">任职资格：
+                                1、男女不限，普通话良好；<br>
+                                2、有零售行业工作经验优先，有零售店面销售经验优先；<br>
+                                3、掌握一定的推销技巧和基本的办公软件；<br>
+                                4、工作细致认真，原则性强，有良好的执行力及职业素养；<br>
+                                5、性格开朗，热情，有一定面销能力。
+                            </div>
+
+                        </div>
+                        <div class="posit_arrow_bot"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="job_btn_con ani" swiper-animate-effect="slideInRight" swiper-animate-duration="0.1s"
+                 swiper-animate-delay="0.5s" swiper-animate-style-cache=" " style="visibility: hidden;">
+                <div class="job_btn_list" style="text-align: center">
+                    <a href="tel:13391771511" class="job_btn tel">电话联系</a>
+                </div>
+            </div>
+        </section>
+        <!-------------slide5----------------->
+        <section class="swiper-slide swiper-slide5 swiper-slide-v" style="height: 576px; opacity: 0; transform: translate3d(0px, -2304px, 0px); z-index: 0;">
+            <div class="logo">
+                <div class="box1">
+                    <div class="box2">
+                        <img src="zhaopin/img/wzp_logo.png">
+                    </div>
+                </div>
+            </div>
+            <p class="praise_tip ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.3s"
+               swiper-animate-delay="0s" swiper-animate-style-cache=" " style="visibility: hidden;">已有<b id="zan">5</b>人觉得这家公司值得加入
+            </p>
+            <a class="praise_btn ani" href="javascript:void(0);" onclick="dianzan(this);" style="visibility: hidden;">
+                <i><em></em></i><span>点赞，值得加入</span>
+            </a>
+            <a class="praise_share_btn ani" href="javascript:void(0);" onclick="shareLink();" style="visibility: hidden;">分享给好友</a>
+            <!--<a class="more_position ani" href="http://www.17sucai.com/preview/153526/2016-11-15/shou/index.html#"
+               id="viewmoreinfozp" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.3s"
+               swiper-animate-delay="0.3s" swiper-animate-style-cache=" " style="visibility: hidden;">查看更多职位&gt;&gt;</a>-->
+        </section>
+    </div>
+    <div class="arrow-box">
+        <img src="zhaopin/img/arrow.png" id="array">
+    </div>
+    <div class="swiper-pagination">
+        <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+        <span class="swiper-pagination-bullet"></span>
+    </div>
+</div>
+</body>
+</html>

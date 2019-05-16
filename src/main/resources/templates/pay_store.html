@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>一键购物</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+    <link rel="stylesheet" href="css/jweixin.css"/>
+    <link rel="stylesheet" href="lib/weui.min.css">
+    <link rel="stylesheet" href="css/jquery-weui.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pay_store.css">
+    <script src="js/jweixin-1.1.0.js"></script>
+    <script src="lib/jquery-2.1.4.js"></script>
+    <script src="lib/fastclick.js"></script>
+    <script src="js/jquery.Spinner.js"></script>
+    <script src="js/jquery-weui.js"></script>
+    <script src="js/pay_store.js"></script>
+</head>
+<body ontouchstart>
+<!--主体-->
+<header class="wy-header">
+    <div class="wy-header-title">购物清单</div>
+</header>
+<div class="weui-content" id="goods">
+    <div class="weui-panel weui-panel_access" style="display: none" name="goodsSn" tabindex="">
+        <div class="weui-panel__hd"><span>东方有泉家居馆</span><a href="javascript:;" class="wy-dele"></a></div>
+        <div class="weui-panel__bd">
+            <div class="weui-media-box_appmsg pd-10">
+                <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="" alt="" name="primaryPicUrl"></a></div>
+                <div class="weui-media-box__bd">
+                    <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link" name="name"></a></h1>
+                    <div class="clear mg-t-10">
+                        <div class="wy-pro-pri fl">¥<em class="num font-15" name="retailPrice"></em></div>
+                        <div class="pro-amount fr"><div class="Spinner"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="weui-btn-area">
+    <a onclick="openSaoyiSao();" class="weui-btn weui-btn_plain-default" style="background:#44bf16;color:#fff;border:none ">+继续添加商品</a>
+</div>
+<!--底部导航-->
+<div class="foot-black"></div>
+<div class="weui-tabbar wy-foot-menu">
+    <div class="weui-tabbar__item  npd">
+        <p class="cart-total-txt">合计：<i>￥</i><em class="num font-16" id="zong1">0.00</em></p>
+    </div>
+    <a onclick="pay_qr_code();" class="red-color npd w-90 t-c">
+        <p class="promotion-foot-menu-label">生成付款码</p>
+    </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>扫一扫询价</title>
+    <link rel="stylesheet" href="css/jweixin.css"/>
+    <link rel="stylesheet" href="css/price.css"/>
+    <script src="js/jweixin-1.1.0.js"></script>
+    <script src="lib/jquery-2.1.4.js"></script>
+    <script src="js/price.js"></script>
+</head>
+
+<body class="ask-price-style">
+<h1 class="ask-price-style">商品详情</h1>
+<div class="ask-price-style" th:if="${goods!=null}">
+    <table width="100%" border="0">
+        <tr>
+            <td class="left_font">商品名称</td>
+            <td class="right_font" th:text="${goods['name']}"></td>
+        </tr>
+        <tr>
+            <td class="left_font">条形码</td>
+            <td class="right_font" th:text="${goods['goodsSn']}"></td>
+        </tr>
+        <tr>
+            <td class="left_font">单价</td>
+            <td class="right_font price" th:text="${'￥'+goods['retailPrice']}"></td>
+        </tr>
+
+        <tr>
+            <td class="left_font">颜色</td>
+            <td class="right_font" th:text="${'￥'+goods['goodsColor']}" ></td>
+        </tr>
+        <tr>
+            <td class="left_font" width="30%">材质</td>
+            <td class="right_font" th:text="${'￥'+goods['materialQuality']}"></td>
+        </tr>
+        <tr>
+            <td class="left_font">规格</td>
+            <td class="right_font" th:text="${goods['goodsFormat']}"></td>
+        </tr>
+        <tr>
+            <td class="left_font">经销商</td>
+            <td class="right_font">天津河西区东方有泉家居馆</td>
+        </tr>
+        <tr>
+            <td class="left_font">图片</td>
+            <td class="right_font"><img th:src="${goods['primaryPicUrl']}"/></td>
+        </tr>
+    </table>
+</div>
+<div class="ask-price-style" th:if="${goods==null}"><center>抱歉,暂无查询到该商品信息@_@</center></div>
+<div>
+    <input type="button" value="继续查询" class="ask-price-style" onclick="openSaoyiSao()"/>
+</div>
+</body>
+</html>

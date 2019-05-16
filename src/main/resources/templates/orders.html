@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>我的购买</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<link rel="stylesheet" href="lib/weui.min.css">
+<link rel="stylesheet" href="css/jquery-weui.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!--<header class="wy-header" style="position:fixed; top:0; left:0; right:0; z-index:200;">
+  <div class="wy-header-icon-back" onclick="window.location.href='personal'"><span></span></div>
+  <div class="wy-header-title">购买管理</div>
+</header>-->
+<div class='weui-content'>
+  <div class="weui-tab">
+    <div class="weui-navbar" style="position:fixed; top:0px; left:0; right:0; height:44px; background:#fff;">
+      <a class="weui-navbar__item proinfo-tab-tit font-14 weui-bar__item--on" href="#tab1">交易成功</a>
+      <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab2">待付款</a>
+      <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab3">待发货</a>
+      <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab4">待收货</a>
+      <a class="weui-navbar__item proinfo-tab-tit font-14" href="#tab5">待评价</a>
+    </div>
+    <div class="weui-tab__bd proinfo-tab-con" style="padding-top:44px;">
+      <center>亲，暂无小程序购买记录@_@</center>
+    </div>
+    <!--<div class="weui-tab__bd proinfo-tab-con" style="padding-top:44px;">
+      <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item&#45;&#45;active">
+        <div class="weui-panel weui-panel_access">
+          <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">交易成功</span></div>
+          <div class="weui-media-box__bd  pd-10">
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ord-statistics">
+            <span>共<em class="num">2</em>件商品，</span>
+            <span class="wy-pro-pri">总金额：¥<em class="num font-15">592.00</em></span>
+            <span>(含运费<b>￥0.00</b>)</span>
+          </div>
+          <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+              <a href="javascript:;" class="ords-btn-dele">删除订单</a><a href="comment" class="ords-btn-com">评价</a>
+            </div>    
+          </div>
+        </div>
+        
+        <div class="weui-panel weui-panel_access">
+          <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">交易成功</span></div>
+          <div class="weui-media-box__bd  pd-10">
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ord-statistics">
+            <span>共<em class="num">1</em>件商品，</span>
+            <span class="wy-pro-pri">总金额：¥<em class="num font-15">296.00</em></span>
+            <span>(含运费<b>￥0.00</b>)</span>
+          </div>
+          <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+              <a href="javascript:;" class="ords-btn-dele">删除订单</a><a href="comment" class="ords-btn-com">评价</a>
+            </div>    
+          </div>
+        </div>
+        
+      </div>
+      <div id="tab2" class="weui-tab__bd-item">
+        
+        <div class="weui-panel weui-panel_access">
+          <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">待付款</span></div>
+          <div class="weui-media-box__bd  pd-10">
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ord-statistics">
+            <span>共<em class="num">2</em>件商品，</span>
+            <span class="wy-pro-pri">总金额：¥<em class="num font-15">592.00</em></span>
+            <span>(含运费<b>￥0.00</b>)</span>
+          </div>
+          <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+              <a href="javascript:;" class="ords-btn-dele">删除订单</a><a href="#" class="ords-btn-com">去付款</a>
+            </div>    
+          </div>
+        </div>
+        
+        <div class="weui-panel weui-panel_access">
+          <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">待付款</span></div>
+          <div class="weui-media-box__bd  pd-10">
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ord-statistics">
+            <span>共<em class="num">1</em>件商品，</span>
+            <span class="wy-pro-pri">总金额：¥<em class="num font-15">296.00</em></span>
+            <span>(含运费<b>￥0.00</b>)</span>
+          </div>
+          <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+              <a href="javascript:;" class="ords-btn-dele">删除订单</a><a href="#" class="ords-btn-com">去付款</a>
+            </div>    
+          </div>
+        </div>
+        
+      </div>
+      <div id="tab3" class="weui-tab__bd-item">
+      
+      <div class="weui-panel weui-panel_access">
+          <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">待发货</span></div>
+          <div class="weui-media-box__bd  pd-10">
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ord-statistics">
+            <span>共<em class="num">2</em>件商品，</span>
+            <span class="wy-pro-pri">总金额：¥<em class="num font-15">592.00</em></span>
+            <span>(含运费<b>￥0.00</b>)</span>
+          </div>
+          <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+              商品正在打包中，请您耐心等待....
+            </div>    
+          </div>
+        </div>
+        
+        <div class="weui-panel weui-panel_access">
+          <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">待发货</span></div>
+          <div class="weui-media-box__bd  pd-10">
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ord-statistics">
+            <span>共<em class="num">1</em>件商品，</span>
+            <span class="wy-pro-pri">总金额：¥<em class="num font-15">296.00</em></span>
+            <span>(含运费<b>￥0.00</b>)</span>
+          </div>
+          <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+              商品正在打包中，请您耐心等待....
+            </div>    
+          </div>
+        </div>
+        
+        <div class="weui-panel weui-panel_access">
+          <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">待发货</span></div>
+          <div class="weui-media-box__bd  pd-10">
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ord-statistics">
+            <span>共<em class="num">1</em>件商品，</span>
+            <span class="wy-pro-pri">总金额：¥<em class="num font-15">296.00</em></span>
+            <span>(含运费<b>￥0.00</b>)</span>
+          </div>
+          <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+              商品正在打包中，请您耐心等待....
+            </div>    
+          </div>
+        </div>
+      
+      </div>
+      <div id="tab4" class="weui-tab__bd-item">
+      
+        <div class="weui-panel weui-panel_access">
+          <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">待收货</span></div>
+          <div class="weui-media-box__bd  pd-10">
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ord-statistics">
+            <span>共<em class="num">2</em>件商品，</span>
+            <span class="wy-pro-pri">总金额：¥<em class="num font-15">592.00</em></span>
+            <span>(含运费<b>￥0.00</b>)</span>
+          </div>
+          <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+              <a href="wuliu" class="ords-btn-com receipt">查询物流</a><a href="javascript:;" class="ords-btn-com receipt">确认收货</a>
+            </div>    
+          </div>
+        </div>
+        
+        <div class="weui-panel weui-panel_access">
+          <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">待收货</span></div>
+          <div class="weui-media-box__bd  pd-10">
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ord-statistics">
+            <span>共<em class="num">1</em>件商品，</span>
+            <span class="wy-pro-pri">总金额：¥<em class="num font-15">296.00</em></span>
+            <span>(含运费<b>￥0.00</b>)</span>
+          </div>
+          <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+              <a href="wuliu" class="ords-btn-com receipt">查询物流</a><a href="javascript:;" class="ords-btn-com receipt">确认收货</a>
+            </div>    
+          </div>
+        </div>
+      
+      </div>
+      <div id="tab5" class="weui-tab__bd-item">
+      
+        <div class="weui-panel weui-panel_access">
+          <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">待评价</span></div>
+          <div class="weui-media-box__bd  pd-10">
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ord-statistics">
+            <span>共<em class="num">2</em>件商品，</span>
+            <span class="wy-pro-pri">总金额：¥<em class="num font-15">592.00</em></span>
+            <span>(含运费<b>￥0.00</b>)</span>
+          </div>
+          <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+              <a href="comment" class="ords-btn-com">去评价</a>
+            </div>    
+          </div>
+        </div>
+        
+        <div class="weui-panel weui-panel_access">
+          <div class="weui-panel__hd"><span>单号：2132165457654545</span><span class="ord-status-txt-ts fr">待评价</span></div>
+          <div class="weui-media-box__bd  pd-10">
+            <div class="weui-media-box_appmsg ord-pro-list">
+              <div class="weui-media-box__hd"><a href="#"><img class="weui-media-box__thumb" src="http://www.viplife.cn/upload/2019-1/20191291056503987_b.jpg" alt=""></a></div>
+              <div class="weui-media-box__bd">
+                <h1 class="weui-media-box__desc"><a href="#" class="ord-pro-link">双面刷厨房餐具刷杯盖缝隙刷多功能门窗凹槽刷洗杯刷清洁刷 多功能可旋转</a></h1>
+                <p class="weui-media-box__desc">规格：<span>10.4*11.9*9.6cm</span>，<span>121g</span></p>
+                <div class="clear mg-t-10">
+                  <div class="wy-pro-pri fl">¥<em class="num font-15">296.00</em></div>
+                  <div class="pro-amount fr"><span class="font-13">数量×<em class="name">1</em></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ord-statistics">
+            <span>共<em class="num">1</em>件商品，</span>
+            <span class="wy-pro-pri">总金额：¥<em class="num font-15">296.00</em></span>
+            <span>(含运费<b>￥0.00</b>)</span>
+          </div>
+          <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_access weui-cell_link oder-opt-btnbox">
+              <a href="comment" class="ords-btn-com">去评价</a>
+            </div>    
+          </div>
+        </div>
+      
+      </div>
+    </div>-->
+  </div>
+</div>
+
+<script src="lib/jquery-2.1.4.js"></script> 
+<script src="lib/fastclick.js"></script> 
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script> 
+<script src="js/jquery-weui.js"></script>
+<script>
+
+      $(document).on("click", ".ords-btn-dele", function() {
+        $.confirm("您确定要删除此订单吗?", "确认删除?", function() {
+          $.toast("订单已经删除!");
+        }, function() {
+          //取消操作
+        });
+      });
+	  $(document).on("click", ".receipt", function() {
+        $.alert("五星好评送泉豆哦，赶快去评价吧！", "收货完成！");
+      });
+
+    </script>
+</body>
+</html>

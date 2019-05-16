@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>领券中心</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="lib/weui.min.css">
+    <link rel="stylesheet" href="css/jquery-weui.css">
+    <link href="css/coupon.css" rel="stylesheet" type="text/css">
+    <script src="lib/jquery-2.1.4.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="lib/fastclick.js"></script>
+    <script src="js/jquery-weui.js"></script>
+    <script src="js/coupon.js"></script>
+</head>
+<body>
+    <section class="aui-scrollView">
+        <div class="aui-tab" data-ydui-tab="">
+            <div class="aui-item-ofl">
+                <ul class="tab-nav">
+                    <li class="tab-nav-item tab-active">
+                        <a href="javascript:;">
+                            <i class="icon "></i>
+                            全场通用
+                        </a>
+                    </li>
+                    <li class="tab-nav-item">
+                        <a href="javascript:;">
+                            <i class="icon "></i>
+                            居家用品
+                        </a>
+                    </li>
+                    <li class="tab-nav-item">
+                        <a href="javascript:;">
+                            <i class="icon "></i>
+                            收纳整理
+                        </a>
+                    </li>
+                    <li class="tab-nav-item">
+                        <a href="javascript:;">
+                            <i class="icon "></i>
+                            餐饮杯具
+                        </a>
+                    </li>
+                    <li class="tab-nav-item">
+                        <a href="javascript:;">
+                            <i class="icon "></i>
+                            旅行户外
+                        </a>
+                    </li>
+                    <li class="tab-nav-item">
+                        <a href="javascript:;">
+                            <i class="icon "></i>
+                            家庭清洁
+                        </a>
+                    </li>
+                    <li class="tab-nav-item">
+                        <a href="javascript:;">
+                            <i class="icon "></i>
+                            居家布艺
+                        </a>
+                    </li>
+                    <li class="tab-nav-item">
+                        <a href="javascript:;">
+                            <i class="icon "></i>
+                            厨房用具
+                        </a>
+                    </li>
+                    <li class="tab-nav-item">
+                        <a href="javascript:;">
+                            <i class="icon "></i>
+                            美妆日化
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-panel">
+                <div class="tab-panel-item tab-active" >
+                    <div class="tab-item" th:each="coupon,couponStat : ${coupons0}">
+                        <a href="javascript:;" class="aui-flex aui-vou-content">
+                            <div class="aui-flex-box">
+                                <div class="aui-flex">
+                                    <div class="aui-flex-cp-img">
+                                        <img src="images/icon-quan.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2 th:text="${coupon.name}"></h2>
+                                        <p>
+                                            <i>￥</i><span th:text="${coupon.type_money}"></span><em>满<span th:text="${coupon.min_amount}"></span>可使用</em>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timelimit">
+                                    <em th:text="${coupon.use_start_date}"></em>至<em th:text="${coupon.use_end_date}"></em>有效
+                                </div>
+                            </div>
+                            <div class="aui-vou-button">
+                                <span class="aui-received" th:if="${coupon.state}!='-1'"></span>
+                                <div th:if="${coupon.state}=='-1'">
+                                    <input name="id" type="hidden" th:value="${coupon.id}"/>
+                                    <input name="receive_amount" type="hidden" th:value="${coupon.receive_amount}"/>
+                                    <input name="publish_amount" type="hidden" th:value="${coupon.publish_amount}"/>
+                                    <p th:text="'已抢'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></p>
+                                    <div class="aui-Speed">
+                                        <div class="aui-Speed-top" th:style="'width:'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></div>
+                                    </div>
+                                </div>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-one" th:if="${coupon.state}=='-1'">立即领取</button>
+                                <button class="aui-vou-btn-der" th:if="${coupon.state}=='0'">已领取</button>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-over" th:if="${coupon.state}=='1'">已使用</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-panel-item">
+                    <div class="tab-item" th:each="coupon,couponStat : ${coupons1}">
+                        <a href="javascript:;" class="aui-flex aui-vou-content">
+                            <div class="aui-flex-box">
+                                <div class="aui-flex">
+                                    <div class="aui-flex-cp-img">
+                                        <img src="images/icon-quan.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2 th:text="${coupon.name}"></h2>
+                                        <p>
+                                            <i>￥</i><span th:text="${coupon.type_money}"></span><em>满<span th:text="${coupon.min_amount}"></span>可使用</em>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timelimit">
+                                    <em th:text="${coupon.use_start_date}"></em>至<em th:text="${coupon.use_end_date}"></em>有效
+                                </div>
+                            </div>
+                            <div class="aui-vou-button">
+                                <span class="aui-received" th:if="${coupon.state}!='-1'"></span>
+                                <div th:if="${coupon.state}=='-1'">
+                                    <input name="id" type="hidden" th:value="${coupon.id}"/>
+                                    <input name="receive_amount" type="hidden" th:value="${coupon.receive_amount}"/>
+                                    <input name="publish_amount" type="hidden" th:value="${coupon.publish_amount}"/>
+                                    <p th:text="'已抢'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></p>
+                                    <div class="aui-Speed">
+                                        <div class="aui-Speed-top" th:style="'width:'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></div>
+                                    </div>
+                                </div>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-one" th:if="${coupon.state}=='-1'">立即领取</button>
+                                <button class="aui-vou-btn-der" th:if="${coupon.state}=='0'">已领取</button>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-over" th:if="${coupon.state}=='1'">已使用</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-panel-item">
+                    <div class="tab-item" th:each="coupon,couponStat : ${coupons2}">
+                        <a href="javascript:;" class="aui-flex aui-vou-content">
+                            <div class="aui-flex-box">
+                                <div class="aui-flex">
+                                    <div class="aui-flex-cp-img">
+                                        <img src="images/icon-quan.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2 th:text="${coupon.name}"></h2>
+                                        <p>
+                                            <i>￥</i><span th:text="${coupon.type_money}"></span><em>满<span th:text="${coupon.min_amount}"></span>可使用</em>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timelimit">
+                                    <em th:text="${coupon.use_start_date}"></em>至<em th:text="${coupon.use_end_date}"></em>有效
+                                </div>
+                            </div>
+                            <div class="aui-vou-button">
+                                <span class="aui-received" th:if="${coupon.state}!='-1'"></span>
+                                <div th:if="${coupon.state}=='-1'">
+                                    <input name="id" type="hidden" th:value="${coupon.id}"/>
+                                    <input name="receive_amount" type="hidden" th:value="${coupon.receive_amount}"/>
+                                    <input name="publish_amount" type="hidden" th:value="${coupon.publish_amount}"/>
+                                    <p th:text="'已抢'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></p>
+                                    <div class="aui-Speed">
+                                        <div class="aui-Speed-top" th:style="'width:'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></div>
+                                    </div>
+                                </div>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-one" th:if="${coupon.state}=='-1'">立即领取</button>
+                                <button class="aui-vou-btn-der" th:if="${coupon.state}=='0'">已领取</button>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-over" th:if="${coupon.state}=='1'">已使用</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-panel-item">
+                    <div class="tab-item" th:each="coupon,couponStat : ${coupons3}">
+                        <a href="javascript:;" class="aui-flex aui-vou-content">
+                            <div class="aui-flex-box">
+                                <div class="aui-flex">
+                                    <div class="aui-flex-cp-img">
+                                        <img src="images/icon-quan.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2 th:text="${coupon.name}"></h2>
+                                        <p>
+                                            <i>￥</i><span th:text="${coupon.type_money}"></span><em>满<span th:text="${coupon.min_amount}"></span>可使用</em>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timelimit">
+                                    <em th:text="${coupon.use_start_date}"></em>至<em th:text="${coupon.use_end_date}"></em>有效
+                                </div>
+                            </div>
+                            <div class="aui-vou-button">
+                                <span class="aui-received" th:if="${coupon.state}!='-1'"></span>
+                                <div th:if="${coupon.state}=='-1'">
+                                    <input name="id" type="hidden" th:value="${coupon.id}"/>
+                                    <input name="receive_amount" type="hidden" th:value="${coupon.receive_amount}"/>
+                                    <input name="publish_amount" type="hidden" th:value="${coupon.publish_amount}"/>
+                                    <p th:text="'已抢'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></p>
+                                    <div class="aui-Speed">
+                                        <div class="aui-Speed-top" th:style="'width:'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></div>
+                                    </div>
+                                </div>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-one" th:if="${coupon.state}=='-1'">立即领取</button>
+                                <button class="aui-vou-btn-der" th:if="${coupon.state}=='0'">已领取</button>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-over" th:if="${coupon.state}=='1'">已使用</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-panel-item">
+                    <div class="tab-item" th:each="coupon,couponStat : ${coupons4}">
+                        <a href="javascript:;" class="aui-flex aui-vou-content">
+                            <div class="aui-flex-box">
+                                <div class="aui-flex">
+                                    <div class="aui-flex-cp-img">
+                                        <img src="images/icon-quan.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2 th:text="${coupon.name}"></h2>
+                                        <p>
+                                            <i>￥</i><span th:text="${coupon.type_money}"></span><em>满<span th:text="${coupon.min_amount}"></span>可使用</em>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timelimit">
+                                    <em th:text="${coupon.use_start_date}"></em>至<em th:text="${coupon.use_end_date}"></em>有效
+                                </div>
+                            </div>
+                            <div class="aui-vou-button">
+                                <span class="aui-received" th:if="${coupon.state}!='-1'"></span>
+                                <div th:if="${coupon.state}=='-1'">
+                                    <input name="id" type="hidden" th:value="${coupon.id}"/>
+                                    <input name="receive_amount" type="hidden" th:value="${coupon.receive_amount}"/>
+                                    <input name="publish_amount" type="hidden" th:value="${coupon.publish_amount}"/>
+                                    <p th:text="'已抢'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></p>
+                                    <div class="aui-Speed">
+                                        <div class="aui-Speed-top" th:style="'width:'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></div>
+                                    </div>
+                                </div>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-one" th:if="${coupon.state}=='-1'">立即领取</button>
+                                <button class="aui-vou-btn-der" th:if="${coupon.state}=='0'">已领取</button>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-over" th:if="${coupon.state}=='1'">已使用</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-panel-item">
+                    <div class="tab-item" th:each="coupon,couponStat : ${coupons5}">
+                        <a href="javascript:;" class="aui-flex aui-vou-content">
+                            <div class="aui-flex-box">
+                                <div class="aui-flex">
+                                    <div class="aui-flex-cp-img">
+                                        <img src="images/icon-quan.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2 th:text="${coupon.name}"></h2>
+                                        <p>
+                                            <i>￥</i><span th:text="${coupon.type_money}"></span><em>满<span th:text="${coupon.min_amount}"></span>可使用</em>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timelimit">
+                                    <em th:text="${coupon.use_start_date}"></em>至<em th:text="${coupon.use_end_date}"></em>有效
+                                </div>
+                            </div>
+                            <div class="aui-vou-button">
+                                <span class="aui-received" th:if="${coupon.state}!='-1'"></span>
+                                <div th:if="${coupon.state}=='-1'">
+                                    <input name="id" type="hidden" th:value="${coupon.id}"/>
+                                    <input name="receive_amount" type="hidden" th:value="${coupon.receive_amount}"/>
+                                    <input name="publish_amount" type="hidden" th:value="${coupon.publish_amount}"/>
+                                    <p th:text="'已抢'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></p>
+                                    <div class="aui-Speed">
+                                        <div class="aui-Speed-top" th:style="'width:'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></div>
+                                    </div>
+                                </div>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-one" th:if="${coupon.state}=='-1'">立即领取</button>
+                                <button class="aui-vou-btn-der" th:if="${coupon.state}=='0'">已领取</button>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-over" th:if="${coupon.state}=='1'">已使用</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-panel-item">
+                    <div class="tab-item" th:each="coupon,couponStat : ${coupons6}">
+                        <a href="javascript:;" class="aui-flex aui-vou-content">
+                            <div class="aui-flex-box">
+                                <div class="aui-flex">
+                                    <div class="aui-flex-cp-img">
+                                        <img src="images/icon-quan.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2 th:text="${coupon.name}"></h2>
+                                        <p>
+                                            <i>￥</i><span th:text="${coupon.type_money}"></span><em>满<span th:text="${coupon.min_amount}"></span>可使用</em>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timelimit">
+                                    <em th:text="${coupon.use_start_date}"></em>至<em th:text="${coupon.use_end_date}"></em>有效
+                                </div>
+                            </div>
+                            <div class="aui-vou-button">
+                                <span class="aui-received" th:if="${coupon.state}!='-1'"></span>
+                                <div th:if="${coupon.state}=='-1'">
+                                    <input name="id" type="hidden" th:value="${coupon.id}"/>
+                                    <input name="receive_amount" type="hidden" th:value="${coupon.receive_amount}"/>
+                                    <input name="publish_amount" type="hidden" th:value="${coupon.publish_amount}"/>
+                                    <p th:text="'已抢'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></p>
+                                    <div class="aui-Speed">
+                                        <div class="aui-Speed-top" th:style="'width:'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></div>
+                                    </div>
+                                </div>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-one" th:if="${coupon.state}=='-1'">立即领取</button>
+                                <button class="aui-vou-btn-der" th:if="${coupon.state}=='0'">已领取</button>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-over" th:if="${coupon.state}=='1'">已使用</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-panel-item">
+                    <div class="tab-item" th:each="coupon,couponStat : ${coupons7}">
+                        <a href="javascript:;" class="aui-flex aui-vou-content">
+                            <div class="aui-flex-box">
+                                <div class="aui-flex">
+                                    <div class="aui-flex-cp-img">
+                                        <img src="images/icon-quan.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2 th:text="${coupon.name}"></h2>
+                                        <p>
+                                            <i>￥</i><span th:text="${coupon.type_money}"></span><em>满<span th:text="${coupon.min_amount}"></span>可使用</em>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timelimit">
+                                    <em th:text="${coupon.use_start_date}"></em>至<em th:text="${coupon.use_end_date}"></em>有效
+                                </div>
+                            </div>
+                            <div class="aui-vou-button">
+                                <span class="aui-received" th:if="${coupon.state}!='-1'"></span>
+                                <div th:if="${coupon.state}=='-1'">
+                                    <input name="id" type="hidden" th:value="${coupon.id}"/>
+                                    <input name="receive_amount" type="hidden" th:value="${coupon.receive_amount}"/>
+                                    <input name="publish_amount" type="hidden" th:value="${coupon.publish_amount}"/>
+                                    <p th:text="'已抢'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></p>
+                                    <div class="aui-Speed">
+                                        <div class="aui-Speed-top" th:style="'width:'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></div>
+                                    </div>
+                                </div>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-one" th:if="${coupon.state}=='-1'">立即领取</button>
+                                <button class="aui-vou-btn-der" th:if="${coupon.state}=='0'">已领取</button>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-over" th:if="${coupon.state}=='1'">已使用</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="tab-panel-item">
+                    <div class="tab-item" th:each="coupon,couponStat : ${coupons8}">
+                        <a href="javascript:;" class="aui-flex aui-vou-content">
+                            <div class="aui-flex-box">
+                                <div class="aui-flex">
+                                    <div class="aui-flex-cp-img">
+                                        <img src="images/icon-quan.png" alt="">
+                                    </div>
+                                    <div class="aui-flex-box">
+                                        <h2 th:text="${coupon.name}"></h2>
+                                        <p>
+                                            <i>￥</i><span th:text="${coupon.type_money}"></span><em>满<span th:text="${coupon.min_amount}"></span>可使用</em>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timelimit">
+                                    <em th:text="${coupon.use_start_date}"></em>至<em th:text="${coupon.use_end_date}"></em>有效
+                                </div>
+                            </div>
+                            <div class="aui-vou-button">
+                                <span class="aui-received" th:if="${coupon.state}!='-1'"></span>
+                                <div th:if="${coupon.state}=='-1'">
+                                    <input name="id" type="hidden" th:value="${coupon.id}"/>
+                                    <input name="receive_amount" type="hidden" th:value="${coupon.receive_amount}"/>
+                                    <input name="publish_amount" type="hidden" th:value="${coupon.publish_amount}"/>
+                                    <p th:text="'已抢'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></p>
+                                    <div class="aui-Speed">
+                                        <div class="aui-Speed-top" th:style="'width:'+${coupon.receive_amount*100/coupon.publish_amount}+'%'"></div>
+                                    </div>
+                                </div>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-one" th:if="${coupon.state}=='-1'">立即领取</button>
+                                <button class="aui-vou-btn-der" th:if="${coupon.state}=='0'">已领取</button>
+                                <button class="aui-vou-btn-der aui-vou-btn-der-over" th:if="${coupon.state}=='1'">已使用</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
