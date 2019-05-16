@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lafei.coupon.mapper.CouponMapper">
-  <resultMap id="BaseResultMap" type="com.lafei.coupon.bean.Coupon">
+<mapper namespace="com.lafei.gzh.coupon.mapper.CouponMapper">
+  <resultMap id="BaseResultMap" type="com.lafei.gzh.coupon.bean.Coupon">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="code" jdbcType="VARCHAR" property="code" />
@@ -84,7 +84,7 @@
     from nideshop_coupon
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <update id="updateCoupon" parameterType="com.lafei.coupon.bean.Coupon">
+  <update id="updateCoupon" parameterType="com.lafei.gzh.coupon.bean.Coupon">
     update nideshop_coupon
     <set>
       <if test="name != null">
@@ -138,7 +138,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <insert id="insertUserCoupon" parameterType="com.lafei.coupon.bean.UserCoupon">
+  <insert id="insertUserCoupon" parameterType="com.lafei.gzh.coupon.bean.UserCoupon">
     insert into nideshop_user_coupon
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -193,7 +193,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateUserCoupon" parameterType="com.lafei.coupon.bean.UserCoupon">
+  <update id="updateUserCoupon" parameterType="com.lafei.gzh.coupon.bean.UserCoupon">
     update nideshop_user_coupon
     <set>
       <if test="couponId != null">

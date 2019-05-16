@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lafei.user.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.lafei.user.bean.User">
+<mapper namespace="com.lafei.gzh.user.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.lafei.gzh.user.bean.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="username" jdbcType="VARCHAR" property="username" />
@@ -42,7 +42,7 @@
     from nideshop_user
     where regist_source='gzh'
   </select>
-  <select id="selectByMobileAndPasswd" parameterType="com.lafei.user.bean.User" resultMap="BaseResultMap">
+  <select id="selectByMobileAndPasswd" parameterType="com.lafei.gzh.user.bean.User" resultMap="BaseResultMap">
     select <include refid="Base_Column_List" />
     from nideshop_user
     where regist_source='gzh'
@@ -73,7 +73,7 @@
     delete from nideshop_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lafei.user.bean.User">
+  <insert id="insert" parameterType="com.lafei.gzh.user.bean.User">
     insert into nideshop_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -242,7 +242,7 @@
       </if>
     </trim>
   </insert>
-  <update id="update" parameterType="com.lafei.user.bean.User">
+  <update id="update" parameterType="com.lafei.gzh.user.bean.User">
     update nideshop_user
     <set>
       <if test="code != null">
@@ -326,7 +326,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="modifyPasswd" parameterType="com.lafei.user.bean.User">
+  <update id="modifyPasswd" parameterType="com.lafei.gzh.user.bean.User">
     update nideshop_user set
       password = #{password,jdbcType=VARCHAR},
       is_online='false'

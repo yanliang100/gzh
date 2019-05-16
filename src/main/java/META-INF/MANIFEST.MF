@@ -35,5 +35,5 @@ Class-Path: spring-boot-autoconfigure-2.1.2.RELEASE.jar saaj-impl-1.5.
  -boot-starter-1.1.1.jar tomcat-embed-websocket-9.0.14.jar logback-cla
  ssic-1.2.3.jar spring-beans-5.1.4.RELEASE.jar spring-boot-2.1.2.RELEA
  SE.jar jackson-module-parameter-names-2.9.8.jar
-Main-Class: com.lafei.GzhApplication
+Main-Class: com.lafei.gzh.GzhApplication
 

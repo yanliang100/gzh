@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lafei.goods.mapper.GoodsMapper">
-  <resultMap id="BaseResultMap" type="com.lafei.goods.bean.Goods">
+<mapper namespace="com.lafei.gzh.goods.mapper.GoodsMapper">
+  <resultMap id="BaseResultMap" type="com.lafei.gzh.goods.bean.Goods">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="category_id" jdbcType="INTEGER" property="categoryId" />
     <result column="goods_sn" jdbcType="VARCHAR" property="goodsSn" />
@@ -74,7 +74,7 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
 
-  <insert id="insert" parameterType="com.lafei.goods.bean.Goods">
+  <insert id="insert" parameterType="com.lafei.gzh.goods.bean.Goods">
     insert into nideshop_goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -261,7 +261,7 @@
       </if>
     </trim>
   </insert>
-  <update id="update" parameterType="com.lafei.goods.bean.Goods">
+  <update id="update" parameterType="com.lafei.gzh.goods.bean.Goods">
     update nideshop_goods
     <set>
       <if test="categoryId != null">

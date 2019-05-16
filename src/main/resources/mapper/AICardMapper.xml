@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lafei.aicard.mapper.AICardMapper">
-  <resultMap id="BaseResultMap" type="com.lafei.aicard.bean.AICard">
+<mapper namespace="com.lafei.gzh.aicard.mapper.AICardMapper">
+  <resultMap id="BaseResultMap" type="com.lafei.gzh.aicard.bean.AICard">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="weixin_openid" jdbcType="VARCHAR" property="weixinOpenid" />
     <result column="headImageUrl" jdbcType="VARCHAR" property="headimageurl" />
@@ -14,7 +14,7 @@
     id, weixin_openid, headImageUrl, is_praise, is_join, join_time
   </sql>
 
-  <insert id="insert" parameterType="com.lafei.aicard.bean.AICard">
+  <insert id="insert" parameterType="com.lafei.gzh.aicard.bean.AICard">
     insert into nideshop_aicard
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -89,7 +89,7 @@
     select count(*) from nideshop_aicard where is_praise='1'
   </select>
 
-  <update id="updateByAICard" parameterType="com.lafei.aicard.bean.AICard">
+  <update id="updateByAICard" parameterType="com.lafei.gzh.aicard.bean.AICard">
     update nideshop_aicard
     <set>
       <if test="weixinOpenid != null">

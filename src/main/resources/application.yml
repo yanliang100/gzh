@@ -12,18 +12,20 @@ spring:
     name: test
     driver-class-name: com.mysql.jdbc.Driver
     #ceshi
-    #url: jdbc:mysql://192.168.25.129:3306/nideshop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-    #username: root
-    #password: 123456
+    url: jdbc:mysql://192.168.25.129:3306/nideshop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
     #normal
     #url: jdbc:mysql://cd-cdb-6fhcpmci.sql.tencentcdb.com:63125/nideshop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-    url: jdbc:mysql://172.27.0.9:3306/nideshop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-    username: root
-    password: dongfangyouquan_8868
+    #url: jdbc:mysql://172.27.0.9:3306/nideshop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    #username: root
+    #password: dongfangyouquan_8868
 
   #页面热加载
   thymeleaf:
-    cache: true #页面热加载
+    cache: false #页面热加载
+    prefix: classpath:/templates/
+    mode: LEGACYHTML5
   #文件上传
   servlet:
     multipart:
@@ -37,16 +39,16 @@ spring:
 
     logoPath: C:/upload/logo/dfyq_yuan.png
     #ceshi
-    #appId: wx41aa59a630d3a55a
-    #appSecret: e83321c7f040c48339369c97ad3ecefe
-    #domain: http://lafei.natapp1.cc
-    #token: 88e91e42cfd3c956
+    appId: wx41aa59a630d3a55a
+    appSecret: e83321c7f040c48339369c97ad3ecefe
+    domain: http://lafei.natapp1.cc
+    token: 88e91e42cfd3c956
 
     #normal
-    appId: wx57d0bbef49f4635b
-    appSecret: 234252a358aa7cee3461ed9f4aec79c7
-    domain: http://dfyqjjg.natapp1.cc
-    token: 9a57710e57293c01
+    #appId: wx57d0bbef49f4635b
+    #appSecret: 234252a358aa7cee3461ed9f4aec79c7
+    #domain: http://dfyqjjg.natapp1.cc
+    #token: 9a57710e57293c01
 
     get_weixin_user_url: https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
     access_token_url: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s

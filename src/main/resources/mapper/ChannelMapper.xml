@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lafei.goods.mapper.ChannelMapper">
-  <resultMap id="BaseResultMap" type="com.lafei.goods.bean.Channel">
+<mapper namespace="com.lafei.gzh.goods.mapper.ChannelMapper">
+  <resultMap id="BaseResultMap" type="com.lafei.gzh.goods.bean.Channel">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="url" jdbcType="VARCHAR" property="url" />
@@ -12,7 +12,7 @@
   <sql id="Base_Column_List">
     id, name, url, icon_url, sort_order
   </sql>
-  <select id="selectKinds" parameterType="com.lafei.goods.bean.Channel" resultMap="BaseResultMap">
+  <select id="selectKinds" parameterType="com.lafei.gzh.goods.bean.Channel" resultMap="BaseResultMap">
     select id,name from nideshop_channel order by sort_order asc
   </select>
 </mapper>
