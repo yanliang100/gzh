@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lafei.ad.mapper.AdMapper">
+  <resultMap id="BaseResultMap" type="com.lafei.ad.bean.Ad">
+    <id column="id" jdbcType="SMALLINT" property="id" />
+    <result column="ad_position_id" jdbcType="SMALLINT" property="adPositionId" />
+    <result column="media_type" jdbcType="TINYINT" property="mediaType" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="link" jdbcType="VARCHAR" property="link" />
+    <result column="start_time" jdbcType="DATE" property="startTime" />
+    <result column="end_time" jdbcType="DATE" property="endTime" />
+    <result column="enabled" jdbcType="TINYINT" property="enabled" />
+    <result column="image_url" jdbcType="LONGVARCHAR" property="imageUrl" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, ad_position_id, media_type, name, link, start_time, end_time, enabled, image_url, content
+  </sql>
+  <select id="selectAd"  resultMap="BaseResultMap" parameterType="java.lang.Short">
+    select
+    <include refid="Base_Column_List" />
+    from nideshop_ad
+    where ad_position_id=#{adPositionId,jdbcType=SMALLINT}
+    and enabled='1'
+    order by start_time desc
+    limit 1
+  </select>
+</mapper>

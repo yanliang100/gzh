@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lafei.aicard.mapper.AICardMapper">
+  <resultMap id="BaseResultMap" type="com.lafei.aicard.bean.AICard">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="weixin_openid" jdbcType="VARCHAR" property="weixinOpenid" />
+    <result column="headImageUrl" jdbcType="VARCHAR" property="headimageurl" />
+    <result column="is_praise" jdbcType="VARCHAR" property="isPraise" />
+    <result column="is_join" jdbcType="VARCHAR" property="isJoin" />
+    <result column="join_time" jdbcType="TIMESTAMP" property="joinTime" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, weixin_openid, headImageUrl, is_praise, is_join, join_time
+  </sql>
+
+  <insert id="insert" parameterType="com.lafei.aicard.bean.AICard">
+    insert into nideshop_aicard
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="weixinOpenid != null">
+        weixin_openid,
+      </if>
+      <if test="headimageurl != null">
+        headImageUrl,
+      </if>
+      <if test="isPraise != null">
+        is_praise,
+      </if>
+      <if test="isJoin != null">
+        is_join,
+      </if>
+      <if test="joinTime != null">
+        join_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="weixinOpenid != null">
+        #{weixinOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="headimageurl != null">
+        #{headimageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="isPraise != null">
+        #{isPraise,jdbcType=VARCHAR},
+      </if>
+      <if test="isJoin != null">
+        #{isJoin,jdbcType=VARCHAR},
+      </if>
+      <if test="joinTime != null">
+        #{joinTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectAIUsers" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from nideshop_aicard
+    order by id desc
+    limit #{page,jdbcType=INTEGER},#{rows,jdbcType=INTEGER}
+  </select>
+  <select id="selectByWeixinOpenid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from nideshop_aicard
+    where weixin_openid = #{weixin_openid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from nideshop_aicard
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from nideshop_aicard
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <select id="selectAIUserCount"  resultType="java.lang.Integer">
+    select count(*) from nideshop_aicard
+  </select>
+  <select id="selectPraiseCount"  resultType="java.lang.Integer">
+    select count(*) from nideshop_aicard where is_praise='1'
+  </select>
+
+  <update id="updateByAICard" parameterType="com.lafei.aicard.bean.AICard">
+    update nideshop_aicard
+    <set>
+      <if test="weixinOpenid != null">
+        weixin_openid = #{weixinOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="headimageurl != null">
+        headImageUrl = #{headimageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="isPraise != null">
+        is_praise = #{isPraise,jdbcType=VARCHAR},
+      </if>
+      <if test="isJoin != null">
+        is_join = #{isJoin,jdbcType=VARCHAR},
+      </if>
+      <if test="joinTime != null">
+        join_time = #{joinTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <where>
+      <if test="id != null">
+        and id = #{id,jdbcType=INTEGER}
+      </if>
+      <if test="weixinOpenid != null">
+        and weixin_openid = #{weixinOpenid,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </update>
+</mapper>

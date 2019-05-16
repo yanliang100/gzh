@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lafei.user.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.lafei.user.bean.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="birthday" jdbcType="INTEGER" property="birthday" />
+    <result column="register_time" jdbcType="VARCHAR" property="registerTime" />
+    <result column="last_login_time" jdbcType="VARCHAR" property="lastLoginTime" />
+    <result column="last_login_ip" jdbcType="VARCHAR" property="lastLoginIp" />
+    <result column="user_level_id" jdbcType="TINYINT" property="userLevelId" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="register_ip" jdbcType="VARCHAR" property="registerIp" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="weixin_openid" jdbcType="VARCHAR" property="weixinOpenid" />
+    <result column="subscribe" jdbcType="INTEGER" property="subscribe" />
+    <result column="subscribeTime" jdbcType="VARCHAR" property="subscribetime" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="headImgUrl" jdbcType="VARCHAR" property="headimgurl" />
+    <result column="reward_points" jdbcType="INTEGER" property="rewardPoints" />
+    <result column="quan_dou" jdbcType="INTEGER" property="quanDou" />
+    <result column="is_online" jdbcType="CHAR" property="isOnline" />
+    <result column="is_cashier" jdbcType="CHAR" property="isCashier" />
+    <result column="regist_source" jdbcType="VARCHAR" property="registSource" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, code, username, password, gender, birthday, register_time, last_login_time, last_login_ip,
+    user_level_id, nickname, mobile, register_ip, avatar, weixin_openid, subscribe, subscribeTime,
+    country, province, city, language, headImgUrl, ifnull(reward_points,0) as reward_points,
+    ifnull(quan_dou,0) as quan_dou,is_online,is_cashier,regist_source
+  </sql>
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from nideshop_user
+    where regist_source='gzh'
+  </select>
+  <select id="selectByMobileAndPasswd" parameterType="com.lafei.user.bean.User" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from nideshop_user
+    where regist_source='gzh'
+    and mobile=#{mobile,jdbcType=VARCHAR}
+    and password=#{password,jdbcType=VARCHAR}
+
+  </select>
+  <select id="selectByWeixinOpenid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from nideshop_user
+    where weixin_openid = #{weixinOpenid,jdbcType=VARCHAR}
+    and regist_source='gzh'
+  </select>
+  <select id="selectCashiers" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from nideshop_user
+    where is_cashier='true'
+    and regist_source='gzh'
+  </select>
+  <select id="select" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from nideshop_user
+    where id = #{id,jdbcType=INTEGER}
+    and regist_source='gzh'
+  </select>
+  <delete id="delete" parameterType="java.lang.Integer">
+    delete from nideshop_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lafei.user.bean.User">
+    insert into nideshop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="lastLoginIp != null">
+        last_login_ip,
+      </if>
+      <if test="userLevelId != null">
+        user_level_id,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="registerIp != null">
+        register_ip,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="weixinOpenid != null">
+        weixin_openid,
+      </if>
+      <if test="subscribe != null">
+        subscribe,
+      </if>
+      <if test="subscribetime != null">
+        subscribeTime,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="language != null">
+        language,
+      </if>
+      <if test="headimgurl != null">
+        headImgUrl,
+      </if>
+      <if test="rewardPoints != null">
+        reward_points,
+      </if>
+      <if test="quanDou != null">
+        quan_dou,
+      </if>
+      <if test="isOnline != null">
+        is_online,
+      </if>
+      <if test="isCashier != null">
+        is_cashier,
+      </if>
+      <if test="registSource != null">
+        regist_source,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=INTEGER},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginIp != null">
+        #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevelId != null">
+        #{userLevelId,jdbcType=TINYINT},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="registerIp != null">
+        #{registerIp,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinOpenid != null">
+        #{weixinOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="subscribe != null">
+        #{subscribe,jdbcType=INTEGER},
+      </if>
+      <if test="subscribetime != null">
+        #{subscribetime,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null">
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="headimgurl != null">
+        #{headimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="rewardPoints != null">
+        #{rewardPoints,jdbcType=INTEGER},
+      </if>
+      <if test="quanDou != null">
+        #{quanDou,jdbcType=INTEGER},
+      </if>
+      <if test="isOnline != null">
+        #{isOnline,jdbcType=CHAR},
+      </if>
+      <if test="isCashier != null">
+        #{isCashier,jdbcType=CHAR},
+      </if>
+      <if test="registSource != null">
+        #{registSource,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="update" parameterType="com.lafei.user.bean.User">
+    update nideshop_user
+    <set>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=INTEGER},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginIp != null">
+        last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevelId != null">
+        user_level_id = #{userLevelId,jdbcType=TINYINT},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="registerIp != null">
+        register_ip = #{registerIp,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinOpenid != null">
+        weixin_openid = #{weixinOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="subscribe != null">
+        subscribe = #{subscribe,jdbcType=INTEGER},
+      </if>
+      <if test="subscribetime != null">
+        subscribeTime = #{subscribetime,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null">
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="headimgurl != null">
+        headImgUrl = #{headimgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="rewardPoints != null">
+        reward_points = #{rewardPoints,jdbcType=INTEGER},
+      </if>
+      <if test="quanDou != null">
+        quan_dou = #{quanDou,jdbcType=INTEGER},
+      </if>
+      <if test="isOnline != null">
+        is_online = #{isOnline,jdbcType=CHAR},
+      </if>
+      <if test="isCashier != null">
+        is_cashier = #{isCashier,jdbcType=CHAR},
+      </if>
+      <if test="registSource != null">
+        regist_source = #{registSource,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="modifyPasswd" parameterType="com.lafei.user.bean.User">
+    update nideshop_user set
+      password = #{password,jdbcType=VARCHAR},
+      is_online='false'
+    where weixin_openid = #{weixinOpenid,jdbcType=CHAR}
+  </update>
+
+</mapper>

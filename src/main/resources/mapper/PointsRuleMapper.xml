@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lafei.points.mapper.PointsRuleMapper">
+  <resultMap id="BaseResultMap" type="com.lafei.points.bean.PointsRule">
+    <id column="id" jdbcType="SMALLINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="min_amount" jdbcType="INTEGER" property="minAmount" />
+    <result column="type_points" jdbcType="INTEGER" property="typePoints" />
+    <result column="use_start_date" jdbcType="VARCHAR" property="useStartDate" />
+    <result column="use_end_date" jdbcType="VARCHAR" property="useEndDate" />
+    <result column="enabled" jdbcType="TINYINT" property="enabled" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, name,min_amount, type_points, use_start_date, use_end_date, enabled
+  </sql>
+  <select id="selectPointsRule" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+      <include refid="Base_Column_List" />
+    from nideshop_reward_points_rule
+    where min_amount &lt;= #{minAmount,jdbcType=INTEGER}
+    and enabled=1
+    and date_format(now(), '%Y-%m-%d') between use_start_date and use_end_date
+    order by min_amount desc limit 1
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from nideshop_reward_points_rule
+    where id = #{id,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from nideshop_reward_points_rule
+    where id = #{id,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insertSelective" parameterType="com.lafei.points.bean.PointsRule">
+    insert into nideshop_reward_points_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="minAmount != null">
+        min_amount,
+      </if>
+      <if test="typePoints != null">
+        type_points,
+      </if>
+      <if test="useStartDate != null">
+        use_start_date,
+      </if>
+      <if test="useEndDate != null">
+        use_end_date,
+      </if>
+      <if test="enabled != null">
+        enabled,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=SMALLINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="minAmount != null">
+        #{minAmount,jdbcType=INTEGER},
+      </if>
+      <if test="typePoints != null">
+        #{typePoints,jdbcType=INTEGER},
+      </if>
+      <if test="useStartDate != null">
+        #{useStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="useEndDate != null">
+        #{useEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lafei.points.bean.PointsRule">
+    update nideshop_reward_points_rule
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="minAmount != null">
+        min_amount = #{minAmount,jdbcType=INTEGER},
+      </if>
+      <if test="typePoints != null">
+        type_points = #{typePoints,jdbcType=INTEGER},
+      </if>
+      <if test="useStartDate != null">
+        use_start_date = #{useStartDate,jdbcType=VARCHAR},
+      </if>
+      <if test="useEndDate != null">
+        use_end_date = #{useEndDate,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        enabled = #{enabled,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=SMALLINT}
+  </update>
+</mapper>
