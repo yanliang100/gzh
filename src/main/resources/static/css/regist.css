@@ -1,0 +1,25 @@
+.wy-header{
+    background:transparent;
+    margin-top: 1.17647059em;
+    height:7em;
+}
+.wy-header .wy-header-logo img{
+    margin-left: 5px;
+    width: 75px;
+}
+
+.wy-header .wy-header-content{
+    font-family: "华文行楷";
+    font-size: 1.4em;
+    font-weight: 900;
+    margin-left:10px;
+    color: #009367;
+}
+.weui-cells{
+    margin-top: 0em;
+}
+
+.weui-vcode-btn{
+    border-radius:20px;
+    border: 1px solid !important;
+}

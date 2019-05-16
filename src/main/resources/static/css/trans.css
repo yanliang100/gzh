@@ -1,0 +1,15 @@
+body{ margin:0; padding:0; background:#64B8FF;}
+a,img{border:0;}
+a,a:hover{text-decoration:none;color:#000;}
+img{width:100%; height:auto;}
+.wap{width:100%;margin-top:4em;}
+.wap div{ width:80%; margin:0 auto;}
+.wap div a{ display:block; width:100%; height:55px; text-align:center; line-height:55px; font-size:2rem; cursor:pointer; border-radius:50px; font-family:"微软雅黑";margin-top:2em;}
+.wap div a.bgb{ background:url(../images/bgb.jpg) repeat-x;}
+.wap div a.bga{ background:url(../images/bga.jpg) repeat-x; margin-top:10px;}
+.wap div a:hover{ width:100%; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);}
+
+.ask-price-style{ margin:0; padding:0; background:#eeeeee;font-size:1.2rem; font-family:"微软雅黑";}
+.ask-price-style h1{ height:50px; background:#6cba4f; text-align:center; line-height:50px; color:#FFF;}
+.ask-price-style div{ background:#FFF; margin:10px; padding:10px;}
+.ask-price-style input{ border:0; width:100%; height:50px; color:#fff; background:#feaa08; border-radius:10px; cursor:pointer;}

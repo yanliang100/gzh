@@ -1,0 +1,327 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+body {
+    position: relative;
+    min-height: 100%;
+    text-align: left;
+    font-family: Lato, Arial, sans-serif;
+    color: #070101;
+    background-color: #036A4D;
+    padding: 8px;
+    font-size: 14px;
+}
+table{
+    width: 100%;
+}
+.mii-page {
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 18px 8px -4px rgba(0, 0, 0, .3);
+}
+.mii-page h1 {
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    font-size: 1.4em;
+    color: #222;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.mii-page h1 small {
+    font-size: 0.7em;
+    color: #666;
+}
+
+.mii-close{
+    padding-top: 12px;
+}
+
+.mii-close h4 {
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.mii-open{
+    padding-top: 12px;
+    display: inline;
+    font-size:1em;
+}
+
+.mii-open h4 {
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    text-align: left;
+    padding-left: 20px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.mii-open label{
+    padding-left: 30px;
+    font-size:1em;
+    color:#666;
+    font-weight:400;
+    letter-spacing:2px;
+    vertical-align:middle;
+}
+
+.mii-open td{
+    font-size:1em;
+    border: none;
+    color:#666;
+    font-weight:400;
+    letter-spacing:2px;
+    line-height: 30px;
+    vertical-align:middle;
+}
+
+.mii-open td:nth-child(1){
+    padding-left: 20px;
+    width: 20%;
+}
+
+.mii-open td:nth-child(2){
+    padding-left: 10px;
+    width: 65%;
+}
+
+.mii-open td:nth-child(3){
+    padding-left: 10px;
+}
+.phone{
+    width:18px;
+    height: 18px;
+    background-position:-19px -18px;
+    background-image:url("../images/small-icon.png");
+}
+
+.weixin{
+    width:18px;
+    height: 18px;
+    background-position:-104px -34px;
+    background-image:url("../images/small-icon.png");
+}
+
+.tel{
+    width:18px;
+    height: 18px;
+    background-position:-88px -18px;
+    background-image:url("../images/small-icon.png");
+}
+
+.email{
+    width:18px;
+    height: 18px;
+    background-position:-71px -18px;
+    background-image:url("../images/small-icon.png");
+}
+
+.company{
+    width:18px;
+    height: 18px;
+    background-position:-3px -35px;
+    background-image:url("../images/small-icon.png");
+}
+
+.adress{
+    width:18px;
+    height: 18px;
+    background-position:-2px 0px;
+    background-image:url("../images/small-icon.png");
+}
+
+.mii-page img{
+    width: 100%;
+    margin:40% auto;
+}
+
+.sprite-up{
+    width: 15px;
+    height: 8px;
+    background-position:-15px 0px;
+    background-image:url("../images/__sprite.png");
+}
+
+.sprite-down{
+    width: 15px;
+    height: 8px;
+    background-position:0px 0px;
+    background-image:url("../images/__sprite.png");
+}
+
+.mii-container {
+    margin-top:20px;
+    position: relative;
+    overflow: auto;
+    width: 100%;
+    box-shadow: 0 8px 3px -3px rgba(0, 0, 0, .3);
+    background-color: #FFFFFF;
+    color: #666;
+    border-radius: 2px;
+}
+.mii-container-top {
+    height: 40px;
+}
+.mii-container-middle{
+    padding: 5px;
+    margin-top:15px;
+}
+
+.mii-container-middle span{
+    position: relative;
+}
+.praise_share_btn {
+    display: block;
+    line-height: 40px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-family: "黑体";
+    background-color: #DE632B;
+    width: 100%;
+}
+.mii-container-top .flag {
+    float: left;
+    width: 50px;
+    height: auto;
+}
+span.mii-name {
+    color: #b78974;
+    font-size: 1.2em;
+    line-height: 1.2em;
+}
+span.mii-stars {
+    float: right;
+    color: #0db5a2;
+    font-size: 1.4em;
+    font-weight: 900;
+    margin-right: 20px;
+    line-height: 0.8em;
+    overflow: hidden;
+}
+.mii-stars img {
+    display: inline-block;
+    height: 20px;
+    width: auto;
+    padding: 4px 2px 0 0;
+}
+.mii-image {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    width: 60px;
+    height: auto;
+}
+.mii-gold-star {
+    width: 26px;
+    height: 26px;
+    background-size: 100%;
+}
+.mii-gold-star-dots {
+    letter-spacing: 3px;
+    float: right;
+    margin-left: 10px;
+    position: absolute;
+}
+
+.mii-container-bottom {
+    position: relative;
+    float: left;
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 0px 5px 4px 90px;
+    font-size:12px;
+    margin:0px 0px 10px 5px;
+}
+@media screen and (min-width: 265px) {
+    span.mii-name {
+        font-size: 1.8em;
+        line-height: 1.3em;
+    }
+    span.mii-stars {
+        font-size: 2em;
+    }
+    .mii-stars img {
+        height: 27px;
+    }
+}
+@media screen and (min-width: 290px) {
+    .mii-page h1 {
+        font-size: 1.6em;
+    }
+    .mii-container-top {
+        height: 26px;
+    }
+    .mii-container-middle {
+        padding-left: 5px;
+    }
+    .mii-container-bottom {
+        padding-left: 5px;
+        margin:-8px 0px 0px 0px;
+    }
+    .praise{
+        top:47px;
+    }
+    .mii-image {
+        width: 70px;
+        left: 18px;
+    }
+}
+@media screen and (min-width: 325px) {
+    .mii-container-middle {
+        padding-left: 5px;
+    }
+    .mii-image {
+        left: 35px;
+    }
+    .mii-container-bottom {
+        padding-left: 5px;
+    }
+}
+@media screen and (min-width: 415px) {
+    .mii-container-top {
+        height:40px;
+        padding-top: 10px;
+    }
+    .mii-container-middle {
+        padding-left: 5px;
+    }
+    .praise{
+        top:60px;
+    }
+    .mii-gold-stars {
+        clear: none;
+        margin-left: 20px;
+    }
+    .mii-gold-star {
+        width: 34px;
+        height: 34px;
+    }
+}
+@media screen and (min-width: 515px) {
+    .mii-page h1 {
+        font-size: 3em;
+    }
+    .mii-gold-star-dots {
+        display: block;
+    }
+}
